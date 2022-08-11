@@ -1,0 +1,14 @@
+<div class="wrapper">
+    <div class="image">
+        <img [src]="product.image" [alt]="product.title" />
+    </div>
+    <p class="title">{{ product.title }}</p>
+    <p>
+        Price: <span>{{ product.price | currency: "EUR" }}</span>
+    </p>
+    <!-- <button (click)="details = !details" [ngClass]="{ btn: !details }">
+    {{ details ? "Hide" : "Show" }}
+  </button> -->
+    <button (click)="modalService.showModal = true">Show Details</button>
+</div>
+<app-product-details [product]="product"></app-product-details>

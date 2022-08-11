@@ -1,0 +1,10 @@
+<div class="modal-background" *ngIf="modalService.showModal">
+    <div class="modal">
+        <div class="description">
+            <p>{{ product.title }}</p>
+            <p>{{ product.description }}</p>
+            <p>Rating: {{ product.rating.rate | number: "2.3-4" }}</p>
+        </div>
+        <button (click)="modalService.showModal = false">Close</button>
+    </div>
+</div>

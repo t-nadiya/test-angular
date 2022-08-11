@@ -1,0 +1,17 @@
+.container {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        height: 100%;
+        padding: 2rem 0.5rem;
+        color: #1d1f22;
+    }
+    .active {
+        color: #5ece7b;
+        border-bottom: 0.1rem solid #5ece7b;
+    }
+}

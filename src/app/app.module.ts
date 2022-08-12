@@ -10,7 +10,8 @@ import { ProductslistComponent } from './components/productslist/productslist.co
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductModalComponent } from './components/product-modal/product-modal.component';
+import { ProductKeysPipe } from './pipes/product-keys.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     ProductslistComponent,
     NotFoundComponent,
     FilterProductsPipe,
-    ProductDetailsComponent,
+    ProductModalComponent,
+    ProductKeysPipe,
   ],
   imports: [
     BrowserModule,

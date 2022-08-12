@@ -15,9 +15,9 @@
         <a routerLink="edit-product">Edit product fields</a>
     </div> -->
     <div class="buttons">
-        <button (click)="modalService.showModal = true">Show Modal</button>
+        <!-- <button (click)="modalService.showModal = true">Show Modal</button> -->
         <a [routerLink]="['/store/edit-product', product.id]">View Details</a>
         <button (click)="addToCart(product)">Add to cart</button>
     </div>
 </div>
-<app-product-details [product]="product"></app-product-details>
+<app-product-modal [product]="product"></app-product-modal>

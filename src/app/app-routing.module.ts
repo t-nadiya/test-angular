@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'store', pathMatch: 'full' },
   // { path: 'store', component: ProductslistComponent, data: { product: "products[0]" } },
   { path: 'store', component: ProductslistComponent, },
-  { path: 'product/:productId', component: ProductComponent },
+  // { path: 'product/:productId', component: ProductComponent },
   { path: 'cart', loadChildren: () => import('./components/cart/cart.module').then(m => m.CartModule) },
   { path: '**', component: NotFoundComponent }
 ];

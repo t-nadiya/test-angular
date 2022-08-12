@@ -1,7 +1,8 @@
 
 import { Component, Input, OnInit } from '@angular/core';
-import { ServicesModalService } from 'src/app/services/services.modal.service';
+import { ServicesModalService } from '../../services/modal.service';
 import { IProduct } from '../../models/product';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -10,12 +11,16 @@ import { IProduct } from '../../models/product';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(public modalService: ServicesModalService) { }
+  constructor(public modalService: ServicesModalService, private cartService: CartService) { }
 
   ngOnInit(): void {
   }
   @Input() product !: IProduct
   // details: boolean = false
+
+  addToCart(product: IProduct) {
+    this.cartService.addToCart(product);
+  }
 
 }
 

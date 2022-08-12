@@ -20,7 +20,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     ProductslistComponent,
     NotFoundComponent,
     FilterProductsPipe,
-    ProductDetailsComponent
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

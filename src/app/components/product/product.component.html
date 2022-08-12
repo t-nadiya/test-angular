@@ -11,8 +11,12 @@
     <!-- <button (click)="details = !details" [ngClass]="{ btn: !details }">
     {{ details ? "Hide" : "Show" }}
   </button> -->
+    <div class="edit">
+        <a routerLink="edit-product">Edit product fields</a>
+    </div>
     <div class="buttons">
-        <button (click)="modalService.showModal = true">Show Details</button>
+        <button (click)="modalService.showModal = true">Show Modal</button>
+        <a [routerLink]="['/store/edit-product', product.id]">View Details</a>
         <button (click)="addToCart(product)">Add to cart</button>
     </div>
 </div>

@@ -10,13 +10,13 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+  // details: boolean = false
 
   constructor(public modalService: ServicesModalService, private cartService: CartService) { }
 
   ngOnInit(): void {
   }
   @Input() product !: IProduct
-  // details: boolean = false
 
   addToCart(product: IProduct) {
     this.cartService.addToCart(product);

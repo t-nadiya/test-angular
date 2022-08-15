@@ -1,28 +1,28 @@
-<!-- {{ product | json }} -->
 <div *ngIf="product" class="wrapper">
     <p>Id: {{ product.id }}</p>
-    <p>Product: {{ product.title }}</p>
-    <p>Description: {{ product.description }}</p>
     <hr />
-
-    <div>
-        <form>
+    <div [hidden]="submitted">
+        <form (ngSubmit)="onSubmit()" #productForm="ngForm">
             <div class="field">
                 <label for="title">Title: </label>
                 <input type="text" #check #title="ngModel" id="title" [(ngModel)]="product.title" name="title" required minlength="3" maxlength="50" />
-                <div *ngIf="[title.errors?.minlength, title.errors?.maxlength]">
-                    Name must be at least 3 characters long.
+                <div *ngIf="title.errors?.minlength || title.errors?.maxlength">
+                    Name must be at least 3 and max 50 characters long.
                     <p>{{ check.className }}</p>
                 </div>
             </div>
             <div class="field">
                 <label for="description">Description: </label>
                 <input type="text" #description="ngModel" id="description" [(ngModel)]="product.description" name="description" required minlength="3" maxlength="50" />
-                <div *ngIf="[description.errors?.minlength, description.errors?.maxlength]">
-                    Name must be at least 3 characters long.
+                <div *ngIf="description.errors?.minlength || description.errors?.maxlength">
+                    Name must be at least 3 and max 50 characters long.
+                    <p>{{ check.className }}</p>
                 </div>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" [disabled]="!productForm.form.valid">Submit</button>
         </form>
     </div>
+    <hr />
+    <p>Product: {{ product.title }}</p>
+    <p>Description: {{ product.description }}</p>
 </div>

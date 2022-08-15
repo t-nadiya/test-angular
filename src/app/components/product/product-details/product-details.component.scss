@@ -1,7 +1,14 @@
-h4 {
-    margin: 1rem;
-}
-
-p {
-    line-height: 1.5rem;
+.wrapper {
+    h4 {
+        margin: 1rem;
+    }
+    p {
+        line-height: 1.5rem;
+    }
+    .image {
+        width: 200px;
+        img {
+            width: 100%;
+        }
+    }
 }

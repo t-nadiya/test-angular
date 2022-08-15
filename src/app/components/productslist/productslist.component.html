@@ -2,7 +2,7 @@
 
 <div class="search">
     <label for="productTitle">Search product: </label>
-    <input id="productTitle" [(ngModel)]="title" placeholder="title" />
+    <input id="productTitle" [(ngModel)]="title" />
 </div>
 <div class="wrapper">
     <app-product *ngFor="let product of products | filterProducts: title" [product]="product" class="card"></app-product>

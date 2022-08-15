@@ -23,7 +23,7 @@ export class AppComponent {
   }
 
   selectProduct(product: IProduct) {
-    console.log(product);
+
     this.editProductService.selectProduct(product)
 
   }

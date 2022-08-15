@@ -1,2 +1,5 @@
-<h4>{{ product.title }}</h4>
-<p>{{ product.description }}</p>
+<div class="wrapper">
+    <h4>{{ product.title }}</h4>
+    <p>{{ product.description }}</p>
+    <div class="image"><img [src]="product.image" alt="product.title" /></div>
+</div>

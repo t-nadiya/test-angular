@@ -4,11 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductslistComponent } from './components/productslist/productslist.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'store', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: 'edit-module/:productId', loadChildren: () => import('./components/edit-product/edit-product.module').then(m => m.EditProductModule) },
   { path: 'store', component: ProductslistComponent, },
   { path: 'cart', loadChildren: () => import('./components/cart/cart.module').then(m => m.CartModule) },
-  { path: 'store/edit-product/:productId', loadChildren: () => import('./components/product/edit-product/edit-product.module').then(m => m.EditProductModule) },
-
+  { path: 'store/product-details/:productId', loadChildren: () => import('./components/product/product-details/product-details.module').then(m => m.ProductDetailsModule) },
   { path: '**', component: NotFoundComponent }
 ];
 

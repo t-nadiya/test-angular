@@ -11,7 +11,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
 import { ProductModalComponent } from './components/product-modal/product-modal.component';
-import { ProductKeysPipe } from './pipes/product-keys.pipe';
 
 @NgModule({
   declarations: [
@@ -22,13 +21,13 @@ import { ProductKeysPipe } from './pipes/product-keys.pipe';
     NotFoundComponent,
     FilterProductsPipe,
     ProductModalComponent,
-    ProductKeysPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

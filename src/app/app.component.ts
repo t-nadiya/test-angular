@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-// import { ServicesModalService } from './services/services.modal.service';
+import { IProduct } from './models/product';
+import { EditProductService } from './services/edit-product.service';
+import { ProductService } from './services/products.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +10,22 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  products: IProduct[] = []
+  selectedProduct: IProduct | undefined;
+
+  constructor(private productsService: ProductService, private editProductService: EditProductService) { }
+
+  ngOnInit(): void {
+    this.productsService.getProducts().subscribe((products) => {
+      this.products = products
+      console.log(this.products)
+    })
+  }
+
+  selectProduct(product: IProduct) {
+    console.log(product);
+    this.editProductService.selectProduct(product)
+
+  }
 
 }

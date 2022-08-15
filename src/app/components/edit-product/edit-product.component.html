@@ -1,0 +1,22 @@
+<!-- {{ product | json }} -->
+<div *ngIf="product" class="wrapper">
+    <p>Id: {{ product.id }}</p>
+    <p>Product: {{ product.title }}</p>
+    <p>Description: {{ product.description }}</p>
+
+    <div class="field">
+        <label for="product-title">Product: </label>
+        <input #spy #title="ngModel" type="text" id="product-title" [(ngModel)]="product.title" required minlength="3" maxlength="50" />
+        <div *ngIf="[title.errors?.minlength, title.errors?.maxlength]">
+            Name must be at least 3 characters long.
+        </div>
+    </div>
+    <!-- {{ spy.className }} -->
+    <div class="field">
+        <label for="product-description">Description: </label>
+        <input type="text" #description="ngModel" id="product-description" [(ngModel)]="product.description" required minlength="3" maxlength="50" />
+        <div *ngIf="[description.errors?.minlength, description.errors?.maxlength]">
+            Name must be at least 3 characters long.
+        </div>
+    </div>
+</div>

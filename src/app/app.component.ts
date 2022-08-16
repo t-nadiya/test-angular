@@ -13,7 +13,10 @@ export class AppComponent {
   products: IProduct[] = []
   selectedProduct: IProduct | undefined;
 
-  constructor(private productsService: ProductService, private editProductService: EditProductService) { }
+  constructor(
+    private productsService: ProductService,
+    // private editProductService: EditProductService
+  ) { }
 
   ngOnInit(): void {
     this.productsService.getProducts().subscribe((products) => {
@@ -22,10 +25,8 @@ export class AppComponent {
     })
   }
 
-  selectProduct(product: IProduct) {
-
-    this.editProductService.selectProduct(product)
-
-  }
+  // selectProduct(product: IProduct) {
+  //   this.editProductService.selectProduct(product)
+  // }
 
 }

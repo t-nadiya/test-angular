@@ -6,7 +6,7 @@
     </button> -->
         <p>Choose product by Id</p>
         <div class="buttons">
-            <a class="button" *ngFor="let product of products" [routerLink]="['edit-product/', product.id]" product="product" class="button">{{ product.id }}</a
+            <a class="button" *ngFor="let product of products" [routerLink]="['edit-product/', product.id]" class="button">{{ product.id }}</a
       >
     </div>
     <router-outlet></router-outlet>

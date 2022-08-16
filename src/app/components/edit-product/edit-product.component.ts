@@ -16,24 +16,26 @@ export class EditProductComponent implements OnInit {
   submitted: boolean | undefined
   product: IProduct | undefined;
 
-  // @Input() product !: IProduct
-  @ViewChild('productForm')
-  form!: NgForm
-
-  constructor(private route: ActivatedRoute, private productsServise: ProductService) { }
-  // form!: FormGroup
-  // constructor(
-  //   private editProductService: EditProductService,
-  //   private fb: FormBuilder,
-  //   private route: ActivatedRoute,
-  //   private productsServise: ProductService
-  // ) {
-  //   this.form = this.fb.group({
-  //     title: new FormControl(this.product?.title, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
-  //     description: new FormControl(this.product?.description, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
-  //   })
-
+  // @ViewChild('productForm')
+  // form!: NgForm
+  // constructor(private route: ActivatedRoute, private productsServise: ProductService) { }
+  // hasUnsavedData() {
+  //   return this.form.dirty
   // }
+
+  form!: FormGroup
+  constructor(
+    private editProductService: EditProductService,
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private productsServise: ProductService
+  ) {
+    this.form = this.fb.group({
+      title: new FormControl(this.product?.title, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
+      description: new FormControl(this.product?.description, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
+    })
+
+  }
 
   ngOnInit(): void {
     this.submitted = false;
@@ -41,10 +43,8 @@ export class EditProductComponent implements OnInit {
     // this.product = this.editProductService.getProduct()
 
   }
-  onSubmit() { this.submitted = true }
-  hasUnsavedData() {
-    return this.form.dirty
-  }
+  onSubmit() { this.submitted = true, this.form.reset() };
+
   getProduct(): void {
     const routeParams = this.route.snapshot.paramMap;
     const id = Number(routeParams.get('productId'));

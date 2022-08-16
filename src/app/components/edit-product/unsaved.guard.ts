@@ -8,9 +8,18 @@ import { EditProductComponent } from './edit-product.component';
 export class UnsavedGuard implements CanDeactivate<EditProductComponent> {
   canDeactivate(component: EditProductComponent) {
 
-    console.log(component.hasUnsavedData());
+    // if (component.hasUnsavedData()) {
+    //   if (confirm('You have some unsaved data. Want to leave?')) {
+    //     return true;
+    //   } else {
+    //     return false
+    //   }
+    // }
+    // return true
 
-    if (component.hasUnsavedData()) {
+    console.log(component.form.dirty);
+
+    if (component.form.dirty) {
       if (confirm('You have some unsaved data. Want to leave?')) {
         return true;
       } else {
@@ -19,16 +28,6 @@ export class UnsavedGuard implements CanDeactivate<EditProductComponent> {
     }
     return true
 
-
-    //   if (component.form.dirty) {
-    //     if (confirm('You have some unsaved data. Want to leave?')) {
-    //       return true;
-    //     } else {
-    //       return false
-    //     }
-    //   }
-    //   return true
-    //
   }
 }
 

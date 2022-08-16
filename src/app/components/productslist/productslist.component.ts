@@ -18,7 +18,6 @@ export class ProductslistComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
     this.productsServise.getProducts().subscribe((products) => {
-      console.log(products);
       this.products = products;
       this.loading = false;
     })

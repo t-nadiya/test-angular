@@ -10,9 +10,7 @@
     </div>
 
     <div class="buttons">
-        <!-- <button (click)="modalService.showModal = true">Show Modal</button> -->
         <a [routerLink]="['/store/product-details', product.id]">View Details</a>
         <button (click)="addToCart(product)">Add to cart</button>
     </div>
 </div>
-<app-product-modal [product]="product"></app-product-modal>

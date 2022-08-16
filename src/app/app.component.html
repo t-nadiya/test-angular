@@ -1,9 +1,14 @@
 <div class="container">
     <app-navbar></app-navbar>
     <div class="wrapper">
-        <button *ngFor="let product of products" (click)="selectProduct(product)" [routerLink]="['edit-product/', product.id]">
+        <!-- <button *ngFor="let product of products" (click)="selectProduct(product)" [routerLink]="['edit-product/', product.id]">
       {{ product.id }}
-    </button>
-        <router-outlet></router-outlet>
+    </button> -->
+        <p>Choose product by Id</p>
+        <div class="buttons">
+            <a class="button" *ngFor="let product of products" [routerLink]="['edit-product/', product.id]" product="product" class="button">{{ product.id }}</a
+      >
     </div>
+    <router-outlet></router-outlet>
+  </div>
 </div>

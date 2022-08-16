@@ -1,5 +1,5 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="product">
     <h4>{{ product.title }}</h4>
     <p>{{ product.description }}</p>
-    <div class="image"><img [src]="product.image" alt="product.title" /></div>
+    <div class="image"><img [src]="product.image" [alt]="product.title" /></div>
 </div>

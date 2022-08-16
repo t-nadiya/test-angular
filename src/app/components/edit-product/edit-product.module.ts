@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { EditProductRoutingModule } from './edit-product-routing.module';
 import { EditProductComponent } from './edit-product.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     EditProductRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class EditProductModule { }

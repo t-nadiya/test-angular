@@ -1,3 +1,24 @@
+<!-- <div *ngIf="product" class="wrapper">
+    <p>Id: {{ product.id }}</p>
+    <hr />
+    <div [hidden]="submitted">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="field">
+                <label for="title">Title: </label>
+                <input type="text" formControlName="title" id="title" name="title" />
+            </div>
+            <div class="field">
+                <label for="description">Description: </label>
+                <input type="text" formControlName="description" id="description" name="description" />
+            </div>
+            <button type="submit" [disabled]="!form.valid">Submit</button>
+        </form>
+    </div>
+    <hr />
+    <p>Product: {{ product.title }}</p>
+    <p>Description: {{ product.description }}</p>
+</div> -->
+
 <div *ngIf="product" class="wrapper">
     <p>Id: {{ product.id }}</p>
     <hr />

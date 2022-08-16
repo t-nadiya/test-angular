@@ -10,7 +10,6 @@ import { ProductslistComponent } from './components/productslist/productslist.co
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
-import { ProductModalComponent } from './components/product-modal/product-modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,7 @@ import { ProductModalComponent } from './components/product-modal/product-modal.
     ProductslistComponent,
     NotFoundComponent,
     FilterProductsPipe,
-    ProductModalComponent,
+
   ],
   imports: [
     BrowserModule,

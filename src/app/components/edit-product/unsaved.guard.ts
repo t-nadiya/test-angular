@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanDeactivate } from '@angular/router';
 import { EditProductComponent } from './edit-product.component';
 
 @Injectable({
@@ -8,11 +7,28 @@ import { EditProductComponent } from './edit-product.component';
 })
 export class UnsavedGuard implements CanDeactivate<EditProductComponent> {
   canDeactivate(component: EditProductComponent) {
-    if (component.isDirty) {
-      return window.confirm('You have some unsaved data. Want to leave?')
+
+    console.log(component.hasUnsavedData());
+
+    if (component.hasUnsavedData()) {
+      if (confirm('You have some unsaved data. Want to leave?')) {
+        return true;
+      } else {
+        return false
+      }
     }
-
     return true
-  }
 
+
+    //   if (component.form.dirty) {
+    //     if (confirm('You have some unsaved data. Want to leave?')) {
+    //       return true;
+    //     } else {
+    //       return false
+    //     }
+    //   }
+    //   return true
+    //
+  }
 }
+

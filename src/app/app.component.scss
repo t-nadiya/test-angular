@@ -9,5 +9,17 @@
             padding: 1rem;
             margin: 1rem;
         }
+        p {
+            margin: 1rem 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            .button {
+                background-color: #5ece7b;
+                padding: 1.7rem;
+                cursor: pointer;
+            }
+        }
     }
 }

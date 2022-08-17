@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IProduct } from './models/product';
-import { EditProductService } from './services/edit-product.service';
 import { ProductService } from './services/products.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class AppComponent {
 
   constructor(
     private productsService: ProductService,
-    // private editProductService: EditProductService
   ) { }
 
   ngOnInit(): void {

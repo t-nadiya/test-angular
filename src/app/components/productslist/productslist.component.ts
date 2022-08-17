@@ -10,14 +10,14 @@ import { IProduct } from 'src/app/models/product';
 })
 export class ProductslistComponent implements OnInit {
 
-  constructor(private productsServise: ProductService) { }
+  constructor(private productsService: ProductService) { }
   products: IProduct[] = []
   loading = false;
   title = '';
 
   ngOnInit(): void {
     this.loading = true;
-    this.productsServise.getProducts().subscribe((products) => {
+    this.productsService.getProducts().subscribe((products) => {
       this.products = products;
       this.loading = false;
     })

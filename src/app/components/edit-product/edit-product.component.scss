@@ -1,3 +1,14 @@
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    button {
+        background-color: #5ece7b;
+        border: none;
+        padding: 1.7rem;
+        cursor: pointer;
+    }
+}
+
 .wrapper {
     .field {
         display: flex;

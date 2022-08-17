@@ -17,8 +17,6 @@ export class UnsavedGuard implements CanDeactivate<EditProductComponent> {
     // }
     // return true
 
-    console.log(component.form.dirty);
-
     if (component.form.dirty) {
       if (confirm('You have some unsaved data. Want to leave?')) {
         return true;

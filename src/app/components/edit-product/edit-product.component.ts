@@ -1,10 +1,9 @@
 import { IProduct } from './../../models/product';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { EditProductService } from '../../services/edit-product.service'
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/services/products.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-product',
@@ -13,8 +12,17 @@ import { ProductService } from 'src/app/services/products.service';
 })
 export class EditProductComponent implements OnInit {
 
-  submitted: boolean | undefined
-  product: IProduct | undefined;
+  products: IProduct[] = []
+  product!: IProduct
+  id!: number
+
+  public form!: FormGroup
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private productsService: ProductService
+  ) { }
+
 
   // @ViewChild('productForm')
   // form!: NgForm
@@ -23,33 +31,26 @@ export class EditProductComponent implements OnInit {
   //   return this.form.dirty
   // }
 
-  form!: FormGroup
-  constructor(
-    private editProductService: EditProductService,
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private productsServise: ProductService
-  ) {
+  ngOnInit(): void {
     this.form = this.fb.group({
       title: new FormControl(this.product?.title, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
       description: new FormControl(this.product?.description, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
     })
 
+    this.getProducts()
+
   }
 
-  ngOnInit(): void {
-    this.submitted = false;
+  onSubmit() { this.form.reset() };
+  getProducts(): void {
+    this.productsService.getProducts().subscribe(products => this.products = products)
+  }
+  setProductId(id: number) {
+    this.id = id
     this.getProduct()
-    // this.product = this.editProductService.getProduct()
-
   }
-  onSubmit() { this.submitted = true, this.form.reset() };
-
   getProduct(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    const id = Number(routeParams.get('productId'));
-
-    this.productsServise.getProduct(id).subscribe(product => {
+    this.productsService.getProduct(this.id).subscribe(product => {
       this.product = product;
       console.log(this.product);
     })

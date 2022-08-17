@@ -25,7 +25,6 @@ export class EditProductComponent implements OnInit {
 
   }
 
-
   // @ViewChild('productForm')
   // form!: NgForm
   // constructor(private route: ActivatedRoute, private productsServise: ProductService) { }
@@ -57,13 +56,10 @@ export class EditProductComponent implements OnInit {
       this.createForm()
     })
   }
-  // editProduct(product: IProduct) {
-
-  //   console.log(this.product);
-  //   console.log(this.form.get('title')?.value);
-
-
-  // }
+  editProduct(product: IProduct) {
+    product.title = this.form.get('title')?.value
+    product.description = this.form.get('description')?.value
+  }
 
 }
 

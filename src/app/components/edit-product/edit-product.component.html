@@ -42,7 +42,7 @@
         </span>
             </div>
         </div>
-        <button type="button">Edit product</button>
+        <button type="button" (click)="editProduct(product)">Edit product</button>
         <button type="submit" [disabled]="!form.valid">Submit</button>
     </form>
     <hr />

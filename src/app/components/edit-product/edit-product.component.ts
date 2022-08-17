@@ -35,9 +35,13 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts()
-
   }
-
+  createForm() {
+    return this.form = this.fb.group({
+      title: new FormControl(this.product.title, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
+      description: new FormControl(this.product?.description, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
+    })
+  }
   onSubmit() { this.form.reset() };
 
   getProducts(): void {
@@ -50,16 +54,15 @@ export class EditProductComponent implements OnInit {
   getProduct(): void {
     this.productsService.getProduct(this.id).subscribe(product => {
       this.product = product;
-
-      this.form = this.fb.group({
-        title: new FormControl(this.product.title, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
-        description: new FormControl(this.product?.description, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
-      })
+      this.createForm()
     })
-
   }
-  // updateProduct(){
-  //   this.form.
+  // editProduct(product: IProduct) {
+
+  //   console.log(this.product);
+  //   console.log(this.form.get('title')?.value);
+
+
   // }
 
 }

@@ -42,8 +42,12 @@
         </span>
             </div>
         </div>
+        <button type="button">Edit product</button>
         <button type="submit" [disabled]="!form.valid">Submit</button>
     </form>
+    <hr />
+    <p>Product: {{ product.title }}</p>
+    <p>Description: {{ product.description }}</p>
 </div>
 
 <!-- <div *ngIf="product" class="wrapper">

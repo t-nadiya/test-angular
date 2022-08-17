@@ -21,7 +21,9 @@ export class EditProductComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private productsService: ProductService
-  ) { }
+  ) {
+
+  }
 
 
   // @ViewChild('productForm')
@@ -32,16 +34,12 @@ export class EditProductComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      title: new FormControl(this.product?.title, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
-      description: new FormControl(this.product?.description, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
-    })
-
     this.getProducts()
 
   }
 
   onSubmit() { this.form.reset() };
+
   getProducts(): void {
     this.productsService.getProducts().subscribe(products => this.products = products)
   }
@@ -52,9 +50,18 @@ export class EditProductComponent implements OnInit {
   getProduct(): void {
     this.productsService.getProduct(this.id).subscribe(product => {
       this.product = product;
-      console.log(this.product);
+
+      this.form = this.fb.group({
+        title: new FormControl(this.product.title, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
+        description: new FormControl(this.product?.description, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])),
+      })
     })
+
   }
+  // updateProduct(){
+  //   this.form.
+  // }
 
 }
+
 
